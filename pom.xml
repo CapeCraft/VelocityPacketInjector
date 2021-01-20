@@ -12,6 +12,11 @@
 			<id>bungeecord-repo</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</repository>
+
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -21,6 +26,11 @@
 			<artifactId>netty-all</artifactId>
 			<version>4.1.51.Final</version>
 		</dependency>
-	</dependencies>
 
+		<dependency>
+			<groupId>com.github.NEZNAMY</groupId>
+			<artifactId>VelocityInternals</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
 </project>
