@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>com.github.NEZNAMY</groupId>
 			<artifactId>VelocityInternals</artifactId>
-			<version>1.0</version>
+			<version>1.0_fix2</version>
 		</dependency>
 	</dependencies>
 </project>
