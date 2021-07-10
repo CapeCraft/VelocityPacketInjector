@@ -2,9 +2,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>me.neznamy</groupId>
+	<groupId>com.github.NEZNAMY</groupId>
 	<artifactId>VelocityPacketInjector</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 
 	<build>
 		<plugins>
@@ -27,6 +27,11 @@
 		</repository>
 
 		<repository>
+			<id>velocity</id>
+			<url>https://nexus.velocitypowered.com/repository/maven-public/</url>
+		</repository>
+
+		<repository>
 			<id>jitpack.io</id>
 			<url>https://jitpack.io</url>
 		</repository>
@@ -43,7 +48,98 @@
 		<dependency>
 			<groupId>com.github.NEZNAMY</groupId>
 			<artifactId>VelocityInternals</artifactId>
-			<version>1.0_fix2</version>
+			<version>1.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.velocitypowered</groupId>
+			<artifactId>velocity-api</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.moandjiezana.toml</groupId>
+					<artifactId>toml4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.checkerframework</groupId>
+					<artifactId>checker-qual</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.spongepowered</groupId>
+					<artifactId>configurate-gson</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.spongepowered</groupId>
+					<artifactId>configurate-hocon</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.mojang</groupId>
+					<artifactId>brigadier</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.spongepowered</groupId>
+					<artifactId>configurate-yaml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.kyori</groupId>
+					<artifactId>
+						adventure-text-serializer-legacy-text3
+					</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.kyori</groupId>
+					<artifactId>
+						adventure-text-serializer-legacy
+					</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.kyori</groupId>
+					<artifactId>
+						adventure-text-serializer-plain
+					</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.kyori</groupId>
+					<artifactId>text-serializer-plain</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>animal-sniffer-annotations</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.google.j2objc</groupId>
+					<artifactId>j2objc-annotations</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.google.code.findbugs</groupId>
+					<artifactId>jsr305</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.google.errorprone</groupId>
+					<artifactId>error_prone_annotations</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.kyori</groupId>
+					<artifactId>text-serializer-legacy</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.kyori</groupId>
+					<artifactId>text-serializer-gson</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.kyori</groupId>
+					<artifactId>examination-string</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>aopalliance</groupId>
+					<artifactId>aopalliance</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 </project>

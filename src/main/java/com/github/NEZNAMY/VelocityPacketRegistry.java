@@ -1,4 +1,4 @@
-package me.neznamy.injector;
+package com.github.NEZNAMY;
 
 import java.lang.reflect.Method;
 import java.util.function.Supplier;
@@ -43,7 +43,8 @@ public class VelocityPacketRegistry {
 							map(0x3B, ProtocolVersion.MINECRAFT_1_12_1, false),
 							map(0x3E, ProtocolVersion.MINECRAFT_1_13, false),
 							map(0x42, ProtocolVersion.MINECRAFT_1_14, false),
-							map(0x43, ProtocolVersion.MINECRAFT_1_15, false)
+							map(0x43, ProtocolVersion.MINECRAFT_1_15, false),
+							map(0x4C, ProtocolVersion.MINECRAFT_1_17, false)
 			});
 			Supplier<ScoreboardObjective> objective = ScoreboardObjective::new;
 			register.invoke(StateRegistry.PLAY.clientbound, ScoreboardObjective.class, objective, 
@@ -54,7 +55,8 @@ public class VelocityPacketRegistry {
 							map(0x42, ProtocolVersion.MINECRAFT_1_12_1, false),
 							map(0x45, ProtocolVersion.MINECRAFT_1_13, false),
 							map(0x49, ProtocolVersion.MINECRAFT_1_14, false),
-							map(0x4A, ProtocolVersion.MINECRAFT_1_15, false)
+							map(0x4A, ProtocolVersion.MINECRAFT_1_15, false),
+							map(0x53, ProtocolVersion.MINECRAFT_1_17, false)
 			});
 			Supplier<ScoreboardScore> score = ScoreboardScore::new;
 			register.invoke(StateRegistry.PLAY.clientbound, ScoreboardScore.class, score, 
@@ -65,7 +67,8 @@ public class VelocityPacketRegistry {
 							map(0x45, ProtocolVersion.MINECRAFT_1_12_1, false),
 							map(0x48, ProtocolVersion.MINECRAFT_1_13, false),
 							map(0x4C, ProtocolVersion.MINECRAFT_1_14, false),
-							map(0x4D, ProtocolVersion.MINECRAFT_1_15, false)
+							map(0x4D, ProtocolVersion.MINECRAFT_1_15, false),
+							map(0x56, ProtocolVersion.MINECRAFT_1_17, false)
 			});
 			Supplier<Team> team = Team::new;
 			register.invoke(StateRegistry.PLAY.clientbound, Team.class, team, 
@@ -76,10 +79,12 @@ public class VelocityPacketRegistry {
 							map(0x44, ProtocolVersion.MINECRAFT_1_12_1, false),
 							map(0x47, ProtocolVersion.MINECRAFT_1_13, false),
 							map(0x4B, ProtocolVersion.MINECRAFT_1_14, false),
-							map(0x4C, ProtocolVersion.MINECRAFT_1_15, false)
+							map(0x4C, ProtocolVersion.MINECRAFT_1_15, false),
+							map(0x55, ProtocolVersion.MINECRAFT_1_17, false)
 			});
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
