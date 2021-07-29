@@ -11,15 +11,30 @@ import io.netty.buffer.ByteBuf;
  * A missing Velocity packet
  */
 public class ScoreboardDisplay implements MinecraftPacket {
-
-	public byte position;
-	public String name;
+	private byte position;
+	private String name;
 
 	public ScoreboardDisplay() {
 	}
 
 	public ScoreboardDisplay(byte position, String name) {
 		this.position = position;
+		this.name = name;
+	}
+
+	public byte getPosition() {
+		return position;
+	}
+
+	public void setPosition(byte position) {
+		this.position = position;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -38,10 +53,5 @@ public class ScoreboardDisplay implements MinecraftPacket {
 	@Override
 	public boolean handle(MinecraftSessionHandler handler) {
 		return false;
-	}
-
-	@Override
-	public String toString(){
-		return "ScoreboardDisplay(position=" + position + ", name=" + name + ")";
 	}
 }
