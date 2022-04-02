@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.NEZNAMY</groupId>
 	<artifactId>VelocityPacketInjector</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 
 	<build>
 		<plugins>
@@ -14,6 +14,7 @@
 				<configuration>
 					<source>11</source>
 					<target>11</target>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -32,21 +33,16 @@
 	</repositories>
 
 	<dependencies>
-		<!-- io.netty -->
 		<dependency>
-			<groupId>io.netty</groupId>
-			<artifactId>netty-buffer</artifactId>
-			<version>4.1.66.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>com.github.NEZNAMY</groupId>
-			<artifactId>VelocityInternals</artifactId>
-			<version>1.0.2</version>
+			<groupId>com.velocitypowered</groupId>
+			<artifactId>velocity-proxy</artifactId>
+			<version>3.1.2-SNAPSHOT</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.velocitypowered</groupId>
 			<artifactId>velocity-api</artifactId>
-			<version>3.0.0</version>
+			<version>3.1.2-SNAPSHOT</version>
 			<scope>provided</scope>
 			<exclusions>
 				<exclusion>

@@ -1,4 +1,4 @@
-package com.github.NEZNAMY;
+package xyz.novaserver.packetinjector;
 
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 
 @Plugin(id = "velocitypacketinjector",
         name = "VelocityPacketInjector",
-        version = "1.1.0",
+        version = "1.1.1",
         description = "Adds missing scoreboard packets to velocity",
         authors = {"NEZNAMY", "Nova"})
 public class VelocityPacketInjector {
@@ -23,9 +23,9 @@ public class VelocityPacketInjector {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        logger.info("Registering missing scoreboard packets...");
+        logger.info("Registering extra velocity packets...");
         if (packetRegistry.registerPackets()) {
-            logger.info("Successfully registered scoreboard packets!");
+            logger.info("Successfully registered extra velocity packets!");
         } else {
             logger.error("Failed to register packets!");
         }

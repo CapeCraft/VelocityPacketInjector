@@ -1,4 +1,4 @@
-package com.github.NEZNAMY;
+package xyz.novaserver.packetinjector;
 
 import java.lang.reflect.Method;
 import java.util.function.Supplier;
@@ -17,7 +17,7 @@ import com.velocitypowered.proxy.protocol.packet.ScoreboardTeam;
  */
 public class VelocityPacketRegistry {
 
-	//packet id mapping method
+	// Packet id mapping method
 	private Method map;
 	
 	/**
@@ -26,16 +26,13 @@ public class VelocityPacketRegistry {
 	 */
 	public boolean registerPackets() {
 		try {
-			Method register = null;
-			for (Method m : PacketRegistry.class.getDeclaredMethods()) {
-				if (m.getName().equals("register")) register = m;
-			}
+			Method register = PacketRegistry.class.getDeclaredMethod("register", Class.class, Supplier.class, PacketMapping[].class);
 			register.setAccessible(true);
+
 			map = StateRegistry.class.getDeclaredMethod("map", int.class, ProtocolVersion.class, boolean.class);
 			map.setAccessible(true);
 
-			Supplier<ScoreboardDisplay> display = ScoreboardDisplay::new;
-			register.invoke(StateRegistry.PLAY.clientbound, ScoreboardDisplay.class, display, 
+			register.invoke(StateRegistry.PLAY.clientbound, ScoreboardDisplay.class, (Supplier<ScoreboardDisplay>) ScoreboardDisplay::new,
 					new PacketMapping[] {
 							map(0x3D, ProtocolVersion.MINECRAFT_1_7_2, true),
 							map(0x38, ProtocolVersion.MINECRAFT_1_9, true),
@@ -46,8 +43,7 @@ public class VelocityPacketRegistry {
 							map(0x43, ProtocolVersion.MINECRAFT_1_15, true),
 							map(0x4C, ProtocolVersion.MINECRAFT_1_17, true)
 			});
-			Supplier<ScoreboardObjective> objective = ScoreboardObjective::new;
-			register.invoke(StateRegistry.PLAY.clientbound, ScoreboardObjective.class, objective, 
+			register.invoke(StateRegistry.PLAY.clientbound, ScoreboardObjective.class, (Supplier<ScoreboardObjective>) ScoreboardObjective::new,
 					new PacketMapping[] {
 							map(0x3B, ProtocolVersion.MINECRAFT_1_7_2, true),
 							map(0x3F, ProtocolVersion.MINECRAFT_1_9, true),
@@ -58,8 +54,7 @@ public class VelocityPacketRegistry {
 							map(0x4A, ProtocolVersion.MINECRAFT_1_15, true),
 							map(0x53, ProtocolVersion.MINECRAFT_1_17, true)
 			});
-			Supplier<ScoreboardSetScore> score = ScoreboardSetScore::new;
-			register.invoke(StateRegistry.PLAY.clientbound, ScoreboardSetScore.class, score,
+			register.invoke(StateRegistry.PLAY.clientbound, ScoreboardSetScore.class, (Supplier<ScoreboardSetScore>) ScoreboardSetScore::new,
 					new PacketMapping[] {
 							map(0x3C, ProtocolVersion.MINECRAFT_1_7_2, true),
 							map(0x42, ProtocolVersion.MINECRAFT_1_9, true),
@@ -70,8 +65,7 @@ public class VelocityPacketRegistry {
 							map(0x4D, ProtocolVersion.MINECRAFT_1_15, true),
 							map(0x56, ProtocolVersion.MINECRAFT_1_17, true)
 			});
-			Supplier<ScoreboardTeam> team = ScoreboardTeam::new;
-			register.invoke(StateRegistry.PLAY.clientbound, ScoreboardTeam.class, team,
+			register.invoke(StateRegistry.PLAY.clientbound, ScoreboardTeam.class, (Supplier<ScoreboardTeam>) ScoreboardTeam::new,
 					new PacketMapping[] {
 							map(0x3E, ProtocolVersion.MINECRAFT_1_7_2, true),
 							map(0x41, ProtocolVersion.MINECRAFT_1_9, true),
@@ -95,9 +89,9 @@ public class VelocityPacketRegistry {
 	 * @param version - protocol version
 	 * @param encodeOnly - disables packet decoding
 	 * @return result from map method
-	 * @throws Exception - if reflection fails
+	 * @throws ReflectiveOperationException - if reflection fails
 	 */
-	private PacketMapping map(int id, ProtocolVersion version, boolean encodeOnly) throws Exception {
+	private PacketMapping map(int id, ProtocolVersion version, boolean encodeOnly) throws ReflectiveOperationException {
 		return (PacketMapping) map.invoke(null, id, version, encodeOnly);
 	}
 }
