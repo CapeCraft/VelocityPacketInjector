@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.NEZNAMY</groupId>
     <artifactId>VelocityPacketInjector</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 
     <build>
         <plugins>
@@ -27,8 +27,8 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
         <repository>
-            <id>velocity</id>
-            <url>https://nexus.velocitypowered.com/repository/maven-public/</url>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
     </repositories>
 

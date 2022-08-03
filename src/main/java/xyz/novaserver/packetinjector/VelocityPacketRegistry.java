@@ -41,7 +41,8 @@ public class VelocityPacketRegistry {
                             map(0x3E, ProtocolVersion.MINECRAFT_1_13, true),
                             map(0x42, ProtocolVersion.MINECRAFT_1_14, true),
                             map(0x43, ProtocolVersion.MINECRAFT_1_15, true),
-                            map(0x4C, ProtocolVersion.MINECRAFT_1_17, true)
+                            map(0x4C, ProtocolVersion.MINECRAFT_1_17, true),
+                            map(0x4F, ProtocolVersion.MINECRAFT_1_19_1, true)
                     });
             register.invoke(StateRegistry.PLAY.clientbound, ScoreboardObjective.class, (Supplier<ScoreboardObjective>) ScoreboardObjective::new,
                     new PacketMapping[] {
@@ -52,7 +53,8 @@ public class VelocityPacketRegistry {
                             map(0x45, ProtocolVersion.MINECRAFT_1_13, true),
                             map(0x49, ProtocolVersion.MINECRAFT_1_14, true),
                             map(0x4A, ProtocolVersion.MINECRAFT_1_15, true),
-                            map(0x53, ProtocolVersion.MINECRAFT_1_17, true)
+                            map(0x53, ProtocolVersion.MINECRAFT_1_17, true),
+                            map(0x56, ProtocolVersion.MINECRAFT_1_19_1, true)
                     });
             register.invoke(StateRegistry.PLAY.clientbound, ScoreboardSetScore.class, (Supplier<ScoreboardSetScore>) ScoreboardSetScore::new,
                     new PacketMapping[] {
@@ -63,7 +65,8 @@ public class VelocityPacketRegistry {
                             map(0x48, ProtocolVersion.MINECRAFT_1_13, true),
                             map(0x4C, ProtocolVersion.MINECRAFT_1_14, true),
                             map(0x4D, ProtocolVersion.MINECRAFT_1_15, true),
-                            map(0x56, ProtocolVersion.MINECRAFT_1_17, true)
+                            map(0x56, ProtocolVersion.MINECRAFT_1_17, true),
+                            map(0x59, ProtocolVersion.MINECRAFT_1_19_1, true)
                     });
             register.invoke(StateRegistry.PLAY.clientbound, ScoreboardTeam.class, (Supplier<ScoreboardTeam>) ScoreboardTeam::new,
                     new PacketMapping[] {
@@ -74,7 +77,8 @@ public class VelocityPacketRegistry {
                             map(0x47, ProtocolVersion.MINECRAFT_1_13, true),
                             map(0x4B, ProtocolVersion.MINECRAFT_1_14, true),
                             map(0x4C, ProtocolVersion.MINECRAFT_1_15, true),
-                            map(0x55, ProtocolVersion.MINECRAFT_1_17, true)
+                            map(0x55, ProtocolVersion.MINECRAFT_1_17, true),
+                            map(0x58, ProtocolVersion.MINECRAFT_1_19_1, true)
                     });
             return true;
         } catch (Exception e) {
