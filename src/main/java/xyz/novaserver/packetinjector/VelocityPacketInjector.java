@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 
 @Plugin(id = "velocitypacketinjector",
         name = "VelocityPacketInjector",
-        version = "1.1.1",
+        version = "1.1.3",
         description = "Adds missing scoreboard packets to velocity",
         authors = {"NEZNAMY", "Nova"})
 public class VelocityPacketInjector {
